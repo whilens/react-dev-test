@@ -17,9 +17,12 @@ export function fetchCalls(): Promise<Call[]> {
 }
 
 export function updateCallStatus(
-  id: string,
-  status: Call["status"],
+  data: {
+    id: string,
+    status: Call["status"],
+  }
 ): Promise<Call> {
+  const { id, status } = data;
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (Math.random() < 0.3) {

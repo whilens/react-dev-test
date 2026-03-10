@@ -10,7 +10,7 @@ export function useSocket() {
     connectSocket();
     const unsubscribe = subscribe((update: Partial<Call>) => {
       queryClient.setQueryData<Call[]>(["calls"], (calls = []) =>
-        calls.map((c) => (c.id === update.id ? (update as Call) : c)),
+        calls.map((c) => (c.id === update.id ? {...c, ...update} : c)),
       );
     });
 

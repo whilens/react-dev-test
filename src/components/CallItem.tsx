@@ -1,7 +1,9 @@
 import { useUIStore } from "../store/uiStore";
 import type { Call } from "../types";
 
-export function CallItem({ call }: { call: Call }) {
+type CallItemProps = { call: Call }
+
+export function CallItem({ call }: CallItemProps) {
   const setSelectedCall = useUIStore((s) => s.setSelectedCall);
 
   return (
